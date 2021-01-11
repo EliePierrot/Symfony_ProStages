@@ -1,23 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block bouttons %}
-<center>
-
-{%  if formationid == "DutInformatique"%}
-  {% set formations = "DUT Informatique" %}
-
-  {%  elseif formationid == "LicenceProfessionnelleMultimédia"%}
-    {% set formations = "Licence Professionnelle Multimédia" %}
-
-    {%  elseif formationid == "DuTic"%}
-      {% set formations = "DU TIC" %}
-
-      {%  else %}
-        {% set formations = "toutes les formations" %}
-
-{%  endif %}
-
-<h3> Veuillez trouver ci-dessous les stages proposés par la formation : {{formations}} </h3>
-
-</center>
+{% block titre %}
+<h1>Cette page affichera la liste des formations de l'IUT</h1>
 {% endblock %}
