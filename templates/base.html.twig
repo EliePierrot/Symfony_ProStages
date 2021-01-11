@@ -22,17 +22,17 @@
 			</div>
 		</div>
 	</div>
-    <div class="row">
+    <div class="row" style="margin-top:5px;">
       <div class="col-md-12">
         <ul class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
           <li class="nav-item">
-            <a class="nav-link" href="http://127.0.0.1:8000/">Accueil</a>
+            <a class="nav-link" href="{{path('pro_stages_accueil')}}">Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/filtreEntreprises">Filtre par entreprise</a>
+            <a class="nav-link active" aria-current="page" href="{{path('pro_stages_filtre_entreprises')}}">Filtre par entreprise</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="http://127.0.0.1:8000/filtreFormations">Filtre par formations</a>
+            <a class="nav-link" href="{{path('pro_stages_filtre_formations')}}">Filtre par formations</a>
           </li>
           <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Rechercher un stage" aria-label="Rechercher">
