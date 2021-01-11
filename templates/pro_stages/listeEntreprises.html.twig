@@ -1,6 +1,24 @@
 {% extends 'base.html.twig' %}
 
 
-{% block titre %}
-<h1>Cette page affichera la liste des entreprises proposant un stage</h1>
+{% block bouttons %}
+<center>
+
+{%  if entrepriseid == "MerkaTic"%}
+  {% set entreprise = "Merka Tic" %}
+
+  {%  elseif entrepriseid == "Hupi"%}
+    {% set entreprise = "Hupi" %}
+
+    {%  elseif entrepriseid == "Arobiz"%}
+      {% set entreprise = "Arobiz" %}
+
+      {%  else %}
+        {% set entreprise = "toutes les entreprises" %}
+
+{%  endif %}
+
+<h3> Veuillez trouver ci-dessous les stages proposés par {{entreprise}} </h3>
+
+</center>
 {% endblock %}

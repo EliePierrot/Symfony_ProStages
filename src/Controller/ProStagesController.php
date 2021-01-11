@@ -17,12 +17,23 @@ class ProStagesController extends AbstractController
     }
 
     /**
-     * @Route("/entreprises", name="pro_stages_entreprises")
+     * @Route("/entreprises/{entrepriseid}", name="pro_stages_entreprises")
      */
-    public function listeEntreprises(): Response
+    public function listeEntreprises($entrepriseid): Response
     {
-        return $this->render('pro_stages/listeEntreprises.html.twig');
+        return $this->render('pro_stages/listeEntreprises.html.twig',
+        ['entrepriseid' => $entrepriseid]);
     }
+
+    /**
+     * @Route("/entreprises/", name="pro_stages_entreprises_sans_id")
+     */
+    public function listeEntreprisesSansId(): Response
+    {
+        return $this->render('pro_stages/listeEntreprises.html.twig',
+        ['entrepriseid' => 0]);
+    }
+
 
     /**
      * @Route("/filtreEntreprises", name="pro_stages_filtre_entreprises")
@@ -33,11 +44,12 @@ class ProStagesController extends AbstractController
     }
 
     /**
-     * @Route("/formations", name="pro_stages_formations")
+     * @Route("/formations/{formationid}", name="pro_stages_formations")
      */
-    public function listeFormations(): Response
+    public function listeFormations($formationid): Response
     {
-        return $this->render('pro_stages/listeFormations.html.twig');
+        return $this->render('pro_stages/listeFormations.html.twig',
+          ['formationid' => $formationid]);
     }
 
     /**
