@@ -4,3 +4,30 @@
 {% block titre %}
 <h1>Cette page affichera le descriptif du stage ayant pour identifiant {{id}}</h1>
 {% endblock %}
+
+{% block bouttons %}
+
+{%  if id == "1"%}
+<div class="row">
+		<div class="col-md-12">
+			<div class="media">
+				<img class="mr-3" alt="Bootstrap Media Preview" src="https://www.layoutit.com/img/sports-q-c-64-64-8.jpg" />
+				<div class="media-body">
+					<h5 class="mt-0">
+						Stage en base de Donnéee
+					</h5>Nous recherchons un étudiant sérieux, rigoureux et surtout motivé. Durant ce stage l'étudiant devra mettre à jour la base de donnée de notre système d'information.
+					<div>
+						La durée du stage est de 10 semaines et commence à compter du 12 avril 2021.
+					</div>
+					<div>
+						Si vous êtes intéressé veuillez nous contacter via cette adresse : hupi@contact.fr<br />
+						<div class="media mt-3">
+							 <a class="pr-3" href="#"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{%  endif %}
+{% endblock %}
