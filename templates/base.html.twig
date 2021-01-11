@@ -14,17 +14,30 @@
     <!-- BLOC DE MENU -->
     {% block menu %}
     <div class="row">
+		<div class="col-md-12">
+			<div class="card text-center">
+				<h3>
+					ProStages:  <small>Votre site de recherche de stage !</small>
+				</h3>
+			</div>
+		</div>
+	</div>
+    <div class="row">
       <div class="col-md-12">
-        <ul class="nav justify-content-center">
+        <ul class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
+          <li class="nav-item">
+            <a class="nav-link" href="http://127.0.0.1:8000/">Accueil</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/filtreEntreprises">Filtre par entreprise</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="http://127.0.0.1:8000/filtreFormations">Filtre par formations</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="http://127.0.0.1:8000/">Aucun filtre</a>
-          </li>
+          <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Rechercher un stage" aria-label="Rechercher">
+          <button class="btn btn-outline-success" type="submit">Rechercher</button>
+        </form>
         </ul>
       </div>
     </div>
@@ -50,6 +63,7 @@
         <div class="card text-center">
           <div class="card-header">
             Siteweb designed by Pierrot Elie
+            <p>Actuellement étudiant dans l'informatique, je vous propose un site qui facilite la recherche de stage</p>
           </div>
         </div>
       </div>
