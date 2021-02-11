@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Stage;
+use App\Entity\Entreprise;
+use App\Entity\Formation;
 
 class ProStagesController extends AbstractController
 {
@@ -18,9 +20,9 @@ class ProStagesController extends AbstractController
         $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
 
         // Recuperer les données dans la base
-        $ressources = $repositoryStage->findAll();
+        $stages = $repositoryStage->findAll();
 
-        return $this->render('pro_stages/index.html.twig',['ressources'=>$ressources]);
+        return $this->render('pro_stages/index.html.twig',['stages'=>$stages]);
     }
 
     /**
@@ -28,8 +30,14 @@ class ProStagesController extends AbstractController
      */
     public function listeEntreprises($entrepriseid): Response
     {
+      // Recuperer le repository de l'entité ENTREPRISE
+      $repositoryEntreprise = $this->getDoctrine()->getRepository(Entreprise::class);
+
+      // Recuperer les données dans la base
+      $ressources = $repositoryEntreprise->findAll();
+
         return $this->render('pro_stages/listeEntreprises.html.twig',
-        ['entrepriseid' => $entrepriseid]);
+        ['entrepriseid' => $entrepriseid], ['ressources'=> $ressources]);
     }
 
     /**
@@ -70,9 +78,15 @@ class ProStagesController extends AbstractController
     /**
      * @Route("/stages/{id}", name="pro_stages_stages")
      */
-    public function descriptifStage($id): Response
+    public function descriptifStage($id)
     {
+      // Récupérer le repository de l'entité Stages
+    $repositoryStages = $this->getDoctrine()->getRepository(Stage::class);
+
+    // Récupérer les stages enregistrées en BD
+    $stages = $repositoryStages->find($id);
+
         return $this->render('pro_stages/descriptifStage.html.twig',
-      [ 'id' => $id]);
+      [ 'stages' => $stages]);
     }
 }

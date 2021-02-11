@@ -30,90 +30,49 @@
 							Identifiant du Stage
 						</th>
 						<th>
-							Entreprise
+							Intitule
+						</th>
+						<th>
+							Description
+						</th>
+						<th>
+							Duree
 						</th>
 						<th>
 							Formation
 						</th>
 						<th>
-							Type
+							Entreprise
 						</th>
 					</tr>
 				</thead>
 				<tbody>
+					{% for stageCourant in stages %}
 					<tr class="table-warning">
 						<td>
-							<a href="http://127.0.0.1:8000/stages/1">1</a>
+							<a href="{{path('pro_stages_stages',{id:stageCourant.id})}}">{{stageCourant.id}}</a>
 						</td>
 						<td>
-							Hupi
+							{{stageCourant.intitule}}
 						</td>
 						<td>
-							Dut Informatique
+							{{stageCourant.description}}
 						</td>
 						<td>
-							Base de donnée
+							{{stageCourant.duree}}
+						</td>
+						<td>
+							formation
+						</td>
+						<td>
+							entreprise
 						</td>
 					</tr>
-					<tr class="table-warning">
-						<td>
-							2
-						</td>
-						<td>
-							Arobiz
-						</td>
-						<td>
-							DU Tic
-						</td>
-						<td>
-							Web
-						</td>
-					</tr>
-					<tr class="table-warning">
-						<td>
-							3
-						</td>
-						<td>
-							<span>Arobiz</span>
-						</td>
-						<td>
-							<span>Dut Informatique</span>
-						</td>
-						<td>
-							Web
-						</td>
-					</tr>
-					<tr class="table-warning">
-						<td>
-							4
-						</td>
-						<td>
-							Merka Tic
-						</td>
-						<td>
-							<span>DU Tic</span>
-						</td>
-						<td>
-							Programmation
-						</td>
-					</tr>
-					<tr class="table-warning">
-						<td>
-							5
-						</td>
-						<td>
-							<span>Merka Tic</span>
-						</td>
-						<td>
-							License Multimédia
-						</td>
-						<td>
-							<span>Programmation</span>
-						</td>
-					</tr>
+					{% endfor %}
 				</tbody>
 			</table>
 		</div>
 	</div>
+
 	</center>
 {% endblock %}
