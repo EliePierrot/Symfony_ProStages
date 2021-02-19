@@ -2,23 +2,18 @@
 
 
 {% block bouttons %}
+
 <center>
+<h2> Veuillez trouver ci-dessous les stages proposés par la formation {{formation.intitule}} </h2></br>
+Nom de l'entreprise : {{formation.intitule}} </br>
+Stage proposé : {% for stage in formation.stages %}
+                Stage numéro {{stage.id}}
+                Intitule du stage : {{stage.intitule}}
+                Descritpion du stage : {{stage.description}}
+                Date de debut du stage : {{stage.dateDebut}} </br>
+                {% endfor %}
 
-{%  if formationid == "DutInformatique"%}
-  {% set formation = "Dut Informatique" %}
-
-  {%  elseif formationid == "DuTic"%}
-    {% set formation = "DU TIC" %}
-
-    {%  elseif formationid == "LicenceProfessionnelleMultimédia"%}
-      {% set formation = "Licence Professionnelle Multimédia" %}
-
-      {%  else %}
-        {% set formation = "toutes les formations" %}
-
-{%  endif %}
-
-<h3> Veuillez trouver ci-dessous les stages proposés pour les étudiants ici de : {{formation}} </h3>
 
 </center>
+
 {% endblock %}
