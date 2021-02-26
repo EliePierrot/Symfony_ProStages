@@ -26,19 +26,22 @@ class ProStagesController extends AbstractController
     }
 
     /**
-     * @Route("/entreprises/{id}", name="pro_stages_entreprises")
+     * @Route("/entreprises/{nom}", name="pro_stages_entreprises")
      */
-    public function listeEntreprises($id)
+    public function listeEntreprises($nom)
     {
-      // Recuperer le repository de l'entité ENTREPRISE
-      $repositoryEntreprise = $this->getDoctrine()->getRepository(Entreprise::class);
+      // Recuperer le repository de l'entité Stage
+      $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
 
       // Recuperer les données dans la base
-      $entreprise = $repositoryEntreprise->find($id);
+      $stage = $repositoryStage->findByEntreprise($nom);
 
         return $this->render('pro_stages/listeEntreprises.html.twig',
-        ['entreprise' => $entreprise]);
+        ['stage' => $stage , 'nom' => $nom]);
     }
+
+
+
 
     /**
      * @Route("/entreprises/", name="pro_stages_entreprises_sans_id")

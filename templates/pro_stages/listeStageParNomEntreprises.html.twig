@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+
+{% block bouttons %}
+<center>
+<h2> Veuillez trouver ci-dessous les stages proposés par l'entreprise {{nom}} </h2></br>
+Nom de l'entreprise : {{entreprise.nom}} </br>
+Adresse de  l'entreprise : {{entreprise.adresse}} </br>
+Stage proposé : {% for stage in entreprise.stages %}
+                Stage numéro {{stage.id}}
+                Intitule du stage : {{stage.intitule}}
+                Descritpion du stage : {{stage.description}}
+                Date de debut du stage : {{stage.dateDebut}} </br>
+                {% endfor %}
+
+
+</center>
+{% endblock %}
