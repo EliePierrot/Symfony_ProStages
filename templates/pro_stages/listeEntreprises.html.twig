@@ -3,14 +3,12 @@
 
 {% block bouttons %}
 <center>
-<h2> Veuillez trouver ci-dessous les stages proposés par l'entreprise {{entreprise.nom}} </h2></br>
-Nom de l'entreprise : {{entreprise.nom}} </br>
-Adresse de  l'entreprise : {{entreprise.adresse}} </br>
-Stage proposé : {% for stage in entreprise.stages %}
-                Stage numéro {{stage.id}}
-                Intitule du stage : {{stage.intitule}}
-                Descritpion du stage : {{stage.description}}
-                Date de debut du stage : {{stage.dateDebut}} </br>
+<h2> Veuillez trouver ci-dessous les stages proposés par l'entreprise {{nom}} </h2></br>
+Stage proposé : {% for stageCourant in stage %}
+                Stage numéro {{stageCourant.id}}
+                Intitule du stage : {{stageCourant.intitule}}
+                Descritpion du stage : {{stageCourant.description}}
+                Date de debut du stage : {{stageCourant.dateDebut}} </br>
                 {% endfor %}
 
 
