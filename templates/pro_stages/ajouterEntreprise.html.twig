@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %}
+<h1>Bienvenue sur la page du formulaire d'ajout d'entreprise</h1>
+{% endblock %}
+
+{% block contenu%}
+<center>
+<div class="row" style="margin-top:15px;">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h5>
+                  {% block titrePage %}Formulaire d'ajout d'entreprise{% endblock %}
+                </h5>
+              </div>
+              <div class="card-body">
+                {% block contenuPage %}
+
+                {{ form(vueFormulaire)}}
+
+                {{ form_start(vueFormulaire) }}
+
+                {{ form_row(vueFormulaire.idEntreprise) }}
+
+                {{ form_row(vueFormulaire.nom) }}
+
+                {{ form_row(vueFormulaire.adresse) }}
+
+                {{ form_row(vueFormulaire.milieu) }}
+
+                {{ form_end(vueFormulaire) }}
+
+                {% endblock %}
+              </div>
+            </div>
+          </div>
+        </div>
+</center>
+{%  endblock %}

@@ -111,4 +111,23 @@ class ProStagesController extends AbstractController
         return $this->render('pro_stages/descriptifStage.html.twig',
       [ 'stages' => $stages]);
     }
+
+    /**
+     * @Route("/ajouterEntreprise", name="pro_stages_ajout_Entreprise")
+     */
+    public function ajouterEntreprise()
+    {
+      //Création d'une ressource vierge qui sera remplie par le formulaire
+      $entreprise = new Entreprise();
+
+      // Création du formulaire permettant de saisir une ressource
+      $formulaireRessource = $this->createFormBuilder($entreprise)
+      ->add('idEntreprise')
+      ->add('nom')
+      ->add('adresse')
+      ->add('milieu')
+      ->getForm();
+
+        return $this->render('pro_stages/ajouterEntreprise.html.twig', ['vueFormulaire' => $formulaireRessource->createView()]);
+    }
 }
