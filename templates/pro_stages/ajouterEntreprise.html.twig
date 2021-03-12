@@ -5,36 +5,38 @@
 {% endblock %}
 
 {% block contenu%}
-<center>
+
 <div class="row" style="margin-top:15px;">
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
                 <h5>
-                  {% block titrePage %}Formulaire d'ajout d'entreprise{% endblock %}
+                  {% block titrePage %}<center>Formulaire d'ajout d'entreprise</center>{% endblock %}
                 </h5>
               </div>
               <div class="card-body">
                 {% block contenuPage %}
 
-                {{ form(vueFormulaire)}}
-
                 {{ form_start(vueFormulaire) }}
 
-                {{ form_row(vueFormulaire.idEntreprise) }}
+                {{ form_row(vueFormulaire.idEntreprise , {'attr':{'placeholder':"Id de l'entreprise..."}}) }}
 
-                {{ form_row(vueFormulaire.nom) }}
+                {{ form_row(vueFormulaire.nom, {'attr':{'placeholder':"Nom de l'entreprise..."}}) }}
 
-                {{ form_row(vueFormulaire.adresse) }}
+                {{ form_row(vueFormulaire.adresse, {'attr':{'placeholder':"Adresse de l'entreprise..."}}) }}
 
-                {{ form_row(vueFormulaire.milieu) }}
+                {{ form_row(vueFormulaire.milieu, {'attr':{'placeholder':"Milieu de l'entreprise..."}}) }}
+
+                <button type="submit" class="btn btn-dark">Enregistrer</button>
 
                 {{ form_end(vueFormulaire) }}
+
+
 
                 {% endblock %}
               </div>
             </div>
           </div>
         </div>
-</center>
+
 {%  endblock %}
