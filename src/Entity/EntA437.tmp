@@ -47,7 +47,7 @@ class Entreprise
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $siteWeb;
+    private $SiteWeb;
 
     public function __construct()
     {
@@ -139,12 +139,12 @@ class Entreprise
 
     public function getSiteWeb(): ?string
     {
-        return $this->siteWeb;
+        return $this->SiteWeb;
     }
 
-    public function setSiteWeb(string $siteWeb): self
+    public function setSiteWeb(string $SiteWeb): self
     {
-        $this->siteWeb = $siteWeb;
+        $this->SiteWeb = $SiteWeb;
 
         return $this;
     }

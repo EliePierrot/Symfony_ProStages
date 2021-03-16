@@ -128,6 +128,7 @@ class ProStagesController extends AbstractController
       ->add('nom')
       ->add('adresse')
       ->add('milieu')
+      ->add('siteWeb')
       ->getForm();
 
       /* On demande au formulaire d'analyser la dernière requête Http. Si le tableau POST contenu
@@ -161,6 +162,7 @@ class ProStagesController extends AbstractController
       ->add('nom')
       ->add('adresse')
       ->add('milieu')
+      ->add('siteWeb')
       ->getForm();
 
       /* On demande au formulaire d'analyser la dernière requête Http. Si le tableau POST contenu

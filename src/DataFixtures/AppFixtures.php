@@ -33,6 +33,7 @@ class AppFixtures extends Fixture
           $entreprise->setNom($faker->company);
           $entreprise->setAdresse($faker->address);
           $entreprise->setMilieu($faker->randomElement($milieuEntreprise));
+          $entreprise->setSiteWeb($faker->url);
 
           $manager->persist($entreprise);
 
