@@ -10,6 +10,7 @@ use App\Entity\Stage;
 use App\Entity\Entreprise;
 use App\Entity\Formation;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Form\EntrepriseType;
 
 class ProStagesController extends AbstractController
 {
@@ -123,20 +124,14 @@ class ProStagesController extends AbstractController
       $entreprise = new Entreprise();
 
       // Création du formulaire permettant de saisir une ressource
-      $formulaireRessource = $this->createFormBuilder($entreprise)
-      ->add('idEntreprise')
-      ->add('nom')
-      ->add('adresse')
-      ->add('milieu')
-      ->add('siteWeb')
-      ->getForm();
+      $formulaireRessource = $this->createForm(EntrepriseType::class, $entreprise);
 
       /* On demande au formulaire d'analyser la dernière requête Http. Si le tableau POST contenu
         dans cette requête contient des variables titre, descriptif, etc. alors la méthode handleRequest()
         récupère les valeurs de ces variables et les affecte à l'objet $ressource*/
         $formulaireRessource->handleRequest($request);
 
-         if ($formulaireRessource->isSubmitted() )
+         if ($formulaireRessource->isSubmitted() && $formulaireRessource->isValid())
          {
             // Enregistrer la ressource en base de donnéelse
             $manager->persist($entreprise);
@@ -157,20 +152,14 @@ class ProStagesController extends AbstractController
     {
 
       // Création du formulaire permettant de saisir une ressource
-      $formulaireRessource = $this->createFormBuilder($entreprise)
-      ->add('idEntreprise')
-      ->add('nom')
-      ->add('adresse')
-      ->add('milieu')
-      ->add('siteWeb')
-      ->getForm();
+      $formulaireRessource = $this->createForm(EntrepriseType::class, $entreprise);
 
       /* On demande au formulaire d'analyser la dernière requête Http. Si le tableau POST contenu
         dans cette requête contient des variables titre, descriptif, etc. alors la méthode handleRequest()
         récupère les valeurs de ces variables et les affecte à l'objet $ressource*/
         $formulaireRessource->handleRequest($request);
 
-         if ($formulaireRessource->isSubmitted() )
+         if ($formulaireRessource->isSubmitted() && $formulaireRessource->isValid())
          {
             // Enregistrer la ressource en base de donnéelse
             $manager->persist($entreprise);
