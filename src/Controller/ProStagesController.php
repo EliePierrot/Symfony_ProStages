@@ -146,6 +146,39 @@ class ProStagesController extends AbstractController
          }
 
 
-        return $this->render('pro_stages/ajouterEntreprise.html.twig', ['vueFormulaire' => $formulaireRessource->createView()]);
+        return $this->render('pro_stages/ajouterEntreprise.html.twig', ['vueFormulaire' => $formulaireRessource->createView(), 'action'=>"ajout"]);
+    }
+
+    /**
+     * @Route("/modifierEntreprise/{id}", name="pro_stages_modif_Entreprise")
+     */
+    public function modifierEntreprise(Request $request, EntityManagerInterface $manager, Entreprise $entreprise)
+    {
+
+      // Création du formulaire permettant de saisir une ressource
+      $formulaireRessource = $this->createFormBuilder($entreprise)
+      ->add('idEntreprise')
+      ->add('nom')
+      ->add('adresse')
+      ->add('milieu')
+      ->getForm();
+
+      /* On demande au formulaire d'analyser la dernière requête Http. Si le tableau POST contenu
+        dans cette requête contient des variables titre, descriptif, etc. alors la méthode handleRequest()
+        récupère les valeurs de ces variables et les affecte à l'objet $ressource*/
+        $formulaireRessource->handleRequest($request);
+
+         if ($formulaireRessource->isSubmitted() )
+         {
+            // Enregistrer la ressource en base de donnéelse
+            $manager->persist($entreprise);
+            $manager->flush();
+
+            // Rediriger l'utilisateur vers la page d'accueil
+            return $this->redirectToRoute('pro_stages_accueil');
+         }
+
+
+        return $this->render('pro_stages/ajouterEntreprise.html.twig', ['vueFormulaire' => $formulaireRessource->createView() , 'action'=>"modifier"]);
     }
 }

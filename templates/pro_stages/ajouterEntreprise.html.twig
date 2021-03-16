@@ -1,7 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block titre %}
+{% if action == "ajout" %}
 <h1>Bienvenue sur la page du formulaire d'ajout d'entreprise</h1>
+{% else %}
+<h1>Bienvenue sur la page du formulaire de modification d'entreprise</h1>
+{% endif %}
 {% endblock %}
 
 {% block contenu%}
