@@ -53,13 +53,13 @@ class Stage
     private $experienceRequise;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Formation::class, inversedBy="stages")
+     * @ORM\ManyToOne(targetEntity=Formation::class, inversedBy="stages", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $formations;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Entreprise::class, inversedBy="stages")
+     * @ORM\ManyToOne(targetEntity=Entreprise::class, inversedBy="stages" , cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $entreprises;

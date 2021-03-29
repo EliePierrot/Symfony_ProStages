@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %}
+<h1>Bienvenue sur la page du formulaire d'ajout de stage</h1>
+{% endblock %}
+
+{% block contenu%}
+
+<div class="row" style="margin-top:15px;">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h5>
+                  {% block titrePage %}<center>Formulaire d'ajout de Stage</center>{% endblock %}
+                </h5>
+              </div>
+              <div class="card-body">
+                {% block contenuPage %}
+
+                {{ form_start(vueFormulaire) }}
+
+                {{ form_row(vueFormulaire.idStage , {'attr':{'placeholder':"Id du Stage..."}}) }}
+
+                {{ form_row(vueFormulaire.intitule, {'attr':{'placeholder':"Intitule du stage..."}}) }}
+
+                {{ form_row(vueFormulaire.description, {'attr':{'placeholder':"Description du stage..."}}) }}
+
+                {{ form_row(vueFormulaire.dateDebut, {'attr':{'placeholder':"Date debut du stage..."}}) }}
+
+                {{ form_row(vueFormulaire.duree, {'attr':{'placeholder':"Duree du stage..."}}) }}
+
+                {{ form_row(vueFormulaire.competencesRequises, {'attr':{'placeholder':"Competences Requises pour le stage..."}}) }}
+
+                {{ form_row(vueFormulaire.experienceRequise, {'attr':{'placeholder':"Experiences Requises pour le stage..."}}) }}
+
+                {{ form_row(vueFormulaire.entreprises.idEntreprise , {'attr':{'placeholder':"Id de l'entreprise..."}}) }}
+
+                {{ form_row(vueFormulaire.entreprises.nom, {'attr':{'placeholder':"Nom de l'entreprise..."}}) }}
+
+                {{ form_row(vueFormulaire.entreprises.adresse, {'attr':{'placeholder':"Adresse de l'entreprise..."}}) }}
+
+                {{ form_row(vueFormulaire.entreprises.milieu, {'attr':{'placeholder':"Milieu de l'entreprise..."}}) }}
+
+                {{ form_row(vueFormulaire.entreprises.siteWeb, {'attr':{'placeholder':"SiteWeb de l'entreprise..."}}) }}
+
+
+                {{ form_row(vueFormulaire.formations, {'attr':{'placeholder':"Formation du stage..."}}) }}
+
+                <button type="submit" class="btn btn-dark">Enregistrer</button>
+
+                {{ form_end(vueFormulaire) }}
+
+
+
+                {% endblock %}
+              </div>
+            </div>
+          </div>
+        </div>
+
+{%  endblock %}

@@ -11,6 +11,7 @@ use App\Entity\Entreprise;
 use App\Entity\Formation;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Form\EntrepriseType;
+use App\Form\StageType;
 
 class ProStagesController extends AbstractController
 {
@@ -171,5 +172,36 @@ class ProStagesController extends AbstractController
 
 
         return $this->render('pro_stages/ajouterEntreprise.html.twig', ['vueFormulaire' => $formulaireRessource->createView() , 'action'=>"modifier"]);
+    }
+
+
+    /**
+     * @Route("/ajouterStage", name="pro_stages_ajout_Stage")
+     */
+    public function ajouterStage(Request $request, EntityManagerInterface $manager)
+    {
+      //Création d'une ressource vierge qui sera remplie par le formulaire
+      $stage = new Stage();
+
+      // Création du formulaire permettant de saisir une ressource
+      $formulaireRessource = $this->createForm(StageType::class, $stage);
+
+      /* On demande au formulaire d'analyser la dernière requête Http. Si le tableau POST contenu
+        dans cette requête contient des variables titre, descriptif, etc. alors la méthode handleRequest()
+        récupère les valeurs de ces variables et les affecte à l'objet $ressource*/
+        $formulaireRessource->handleRequest($request);
+
+         if ($formulaireRessource->isSubmitted() && $formulaireRessource->isValid())
+         {
+            // Enregistrer la ressource en base de donnéelse
+            $manager->persist($stage);
+            $manager->flush();
+
+            // Rediriger l'utilisateur vers la page d'accueil
+            return $this->redirectToRoute('pro_stages_accueil');
+         }
+
+
+        return $this->render('pro_stages/ajouterStage.html.twig', ['vueFormulaire' => $formulaireRessource->createView(), 'action'=>"ajout"]);
     }
 }
