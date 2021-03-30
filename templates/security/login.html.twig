@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Identifiez-vous{% endblock %}
+
+{% block contenu %}
+<form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <label for="inputEmail" class="sr-only">Email</label>
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+    <br />
+    <label for="inputPassword" class="sr-only">Mot de passe</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+
+    {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+    #}
+
+    <br />
+    <button class="btn btn-lg btn-primary" type="submit">
+        Se connecter
+    </button>
+</form>
+{% endblock %}
+
+{% block footer %}
+<footer style="width: 100%;  height: 0%; position: absolute; bottom: 0; ">
+<div class="row">
+  <div class="col-md-12">
+    <div class="card text-center">
+      <div class="card-header">
+        Site web designed by Pierrot Elie
+        <p>Actuellement étudiant dans l'informatique, je vous propose un site qui facilite la recherche de stage</p>
+      </div>
+    </div>
+  </div>
+</div>
+</footer>
+{% endblock %}
