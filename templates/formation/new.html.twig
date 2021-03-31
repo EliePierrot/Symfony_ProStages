@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer une formation{% endblock %}
+
+{% block body %}
+<div class="row" style="margin-top:15px;">
+          <div class="col-md-12">
+            <div class="card">
+  <div class="card-body">
+    {{ include('formation/_form.html.twig') }}
+
+    <a href="{{ path('formation_index') }}">Retour à la liste des formations</a>
+    </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}
