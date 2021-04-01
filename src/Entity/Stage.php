@@ -176,4 +176,8 @@ class Stage
 
         return $this;
     }
+
+    public function __toString(){
+      return $this->getIntitule();
+    }
 }
